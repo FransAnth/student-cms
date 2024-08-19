@@ -1,13 +1,20 @@
-const Loading = () => {
-  let circleCommonClasses = "h-2.5 w-2.5 bg-primary rounded-full";
+import ContentLoader from "react-content-loader";
 
+const TableLoader = () => {
   return (
-    <div className="flex justify-center items-center">
-      <div className={`${circleCommonClasses} mr-1 animate-bounce`}></div>
-      <div className={`${circleCommonClasses} mr-1 animate-bounce200`}></div>
-      <div className={`${circleCommonClasses} animate-bounce400`}></div>
+    <div>
+      <ContentLoader speed={2} width={1560} height={470}>
+        <rect x="6" y="0" rx="0" ry="0" width={1580} height="60" />
+        <rect x="6" y="70" rx="0" ry="0" width={1580} height="60" />
+        <rect x="6" y="140" rx="0" ry="0" width={1580} height="60" />
+        <rect x="6" y="210" rx="0" ry="0" width={1580} height="60" />
+        <rect x="6" y="280" rx="0" ry="0" width={1580} height="60" />
+        <rect x="6" y="350" rx="0" ry="0" width={1580} height="60" />
+        <rect x="6" y="420" rx="0" ry="0" width={1580} height="60" />
+        <rect x="6" y="490" rx="0" ry="0" width={1580} height="60" />
+      </ContentLoader>
     </div>
   );
 };
 
-export default Loading;
+export default TableLoader;

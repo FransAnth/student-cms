@@ -9,6 +9,7 @@ export interface ITableHeaders {
 
 export interface IRowData {
   rowData: any[];
+  isFetching: boolean;
 }
 
 export interface IDataTable extends ITableHeaders, IRowData {}
