@@ -17,7 +17,6 @@ const ClassroomPage = () => {
   return (
     <div className="flex flex-col pt-12 px-8 gap-10">
       <div className="flex flex-row text-4xl">Classrooms</div>
-
       <DataTable headers={headers} rowData={rowData} />
     </div>
   );

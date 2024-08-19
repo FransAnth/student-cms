@@ -11,10 +11,10 @@ const Sidebar = ({ children }: any) => {
       <nav className="h-full flex flex-col bg-white border-r shadow-sm">
         <div className="py-4 px-2 flex justify-between items-center">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/1643/1643231.png"
+            src="https://www.pikpng.com/pngl/b/173-1739644_education-education-icon-dark-blue-clipart.png"
             className={`overflow-hidden transition-all ${
-              expanded ? "w-12" : "w-0"
-            }`}
+              expanded ? "w-16" : "w-0"
+            } p-2`}
           />
           <button
             onClick={() => setExpanded((value) => !value)}
