@@ -21,8 +21,8 @@ const SidebarItem = ({ icon, title, path }: any) => {
         transition-colors group
         ${
           active
-            ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-            : "hover:bg-indigo-50 text-gray-600"
+            ? " bg-primary text-white"
+            : "hover:bg-hoverColor text-gray-600"
         }
     `}
       onClick={() => navigate(path)}
@@ -40,7 +40,7 @@ const SidebarItem = ({ icon, title, path }: any) => {
         <div
           className={`
           absolute left-full rounded-md px-2 py-1 ml-6
-          bg-indigo-100 text-indigo-800 text-sm
+          bg-primary text-primary text-sm
           invisible opacity-20 -translate-x-3 transition-all
           group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
       `}
