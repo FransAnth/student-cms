@@ -11,7 +11,7 @@ const Sidebar = ({ children }: any) => {
       <nav className="h-full flex flex-col bg-white border-r shadow-sm">
         <div className="py-4 px-2 flex justify-between items-center">
           <img
-            src="https://www.pikpng.com/pngl/b/173-1739644_education-education-icon-dark-blue-clipart.png"
+            src="src\assets\Images\main-icon.png"
             className={`overflow-hidden transition-all ${
               expanded ? "w-16" : "w-0"
             } p-2`}
