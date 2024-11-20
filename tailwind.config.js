@@ -8,6 +8,8 @@ export default {
         secondary: "#f2b143",
         hoverColor: "#d6dcf0",
         white: "#f9fafa",
+        secondaryText: "#4b5563",
+        warning: "#FF0000",
       },
     },
   },

@@ -7,3 +7,10 @@ export const getClassroomList = async (params: any) => {
 
   return response;
 };
+
+export const addClassroom = async (payload: any) => {
+  const response = await StudentCms.post("classrooms/", payload);
+
+  console.log("CREATED");
+  return response.data;
+};

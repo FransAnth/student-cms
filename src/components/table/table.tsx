@@ -1,4 +1,4 @@
-import { IDataTable } from "../../types/models/datatable-models";
+import { IDataTable } from "../../interface/table/datatable-models";
 import DataTableBody from "./table-data";
 import DataTableHead from "./table-header";
 

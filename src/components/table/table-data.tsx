@@ -1,4 +1,8 @@
-import { IDataTable, ITableHeader } from "../../types/models/datatable-models";
+import { EllipsisVertical } from "lucide-react";
+import {
+  IDataTable,
+  ITableHeader,
+} from "../../interface/table/datatable-models";
 import TableLoader from "../Loading";
 
 const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
@@ -14,11 +18,26 @@ const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
               index === rowData.length - 1 ? " border-b-2 border-primary" : ""
             }`}
           >
-            {headers.map((header: ITableHeader, index: number) => (
-              <td className="p-3 pl-5" key={index}>
-                {row[header.id]}
-              </td>
-            ))}
+            {headers.map((header: ITableHeader, header_index: number) => {
+              if (header.id === "kebab") {
+                return (
+                  <td key={header_index}>
+                    <button
+                      className="cursor-pointer"
+                      onClick={() => console.log("francis")}
+                    >
+                      <EllipsisVertical />
+                    </button>
+                  </td>
+                );
+              } else {
+                return (
+                  <td className="p-3 pl-5" key={header_index}>
+                    {row[header.id]}
+                  </td>
+                );
+              }
+            })}
           </tr>
         ))
       )}

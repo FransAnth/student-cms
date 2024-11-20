@@ -1,6 +1,8 @@
 export interface ITableHeader {
   title: string;
+  type: string;
   id: string;
+  options?: any[];
 }
 
 export interface ITableHeaders {

@@ -1,7 +1,7 @@
 import {
   ITableHeader,
   ITableHeaders,
-} from "../../types/models/datatable-models";
+} from "../../interface/table/datatable-models";
 
 const DataTableHead = ({ headers }: ITableHeaders) => {
   return (
