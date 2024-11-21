@@ -4,12 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#317196",
-        secondary: "#f2b143",
-        hoverColor: "#d6dcf0",
-        white: "#f9fafa",
-        secondaryText: "#4b5563",
-        warning: "#FF0000",
+        primary: "#4B9E73",
+        secondary: "#C5E7D2",
+        primaryBg: "#417765",
+        secondaryBg: "##D8DBD8",
+        textLighter: "#4b5563",
+        warning: "#D75858",
       },
     },
   },

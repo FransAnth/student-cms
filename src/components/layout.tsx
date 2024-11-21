@@ -23,7 +23,7 @@ const Layout = () => {
           path="/students"
         />
       </Sidebar>
-      <div className="w-full">
+      <div className="w-full bg-secondaryBg">
         <Outlet />
       </div>
     </div>

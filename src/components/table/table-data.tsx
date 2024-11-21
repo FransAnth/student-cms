@@ -14,7 +14,7 @@ const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
         rowData.map((row: any, index: number) => (
           <tr
             key={index}
-            className={`${index % 2 === 0 ? "bg-white" : "bg-hoverColor"} ${
+            className={`${index % 2 === 0 ? "bg-white" : "bg-secondary"} ${
               index === rowData.length - 1 ? " border-b-2 border-primary" : ""
             }`}
           >
