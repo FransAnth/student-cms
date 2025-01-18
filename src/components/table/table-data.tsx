@@ -4,8 +4,13 @@ import {
   ITableHeader,
 } from "../../interface/table/datatable-models";
 import TableLoader from "./table-loader";
+import useToggleKebab from "../../hooks/toogle-menu";
+import { MutableRefObject, useRef } from "react";
 
 const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
+  const { toggleKebab } = useToggleKebab();
+  const kebabRef: MutableRefObject<HTMLDivElement[] | null[]> = useRef([]);
+
   return (
     <tbody>
       {isFetching ? (
@@ -21,13 +26,29 @@ const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
             {headers.map((header: ITableHeader, header_index: number) => {
               if (header.id === "kebab") {
                 return (
-                  <td key={header_index}>
-                    <button
+                  <td key={index}>
+                    <div
+                      onClick={() => toggleKebab(index, true, kebabRef)}
                       className="cursor-pointer"
-                      onClick={() => console.log("francis")}
                     >
                       <EllipsisVertical />
-                    </button>
+                    </div>
+                    <div
+                      ref={(el) => (kebabRef.current[index] = el)}
+                      className={`z-50 absolute right-2 kebab${index} hidden `}
+                    >
+                      <ul className="text-sm text-start bg-white rounded shadow-lg flex flex-col space-y-1 mr-10 cursor-pointer">
+                        {header.options?.map((item: any) => (
+                          <li
+                            key={item.name}
+                            className="px-8 py-2"
+                            onClick={() => item?.action(row)}
+                          >
+                            {item.name}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </td>
                 );
               } else {

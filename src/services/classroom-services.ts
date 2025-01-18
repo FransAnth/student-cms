@@ -14,3 +14,9 @@ export const addClassroom = async (payload: any) => {
   console.log("CREATED");
   return response.data;
 };
+
+export const deleteClassroom = async (id: any) => {
+  const response = await StudentCms.delete(`classrooms/${id}/`);
+
+  return response.data;
+};
