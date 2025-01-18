@@ -18,7 +18,7 @@ const Sidebar = ({ children }: any) => {
           />
           <button
             onClick={() => setExpanded((value) => !value)}
-            className="p-1.5 rounded-3xl bg-secondaryBg hover:bg-secondary"
+            className="p-1.5 rounded-3xl bg-secondary"
           >
             {expanded ? <ChevronFirst /> : <ChevronLast />}
           </button>

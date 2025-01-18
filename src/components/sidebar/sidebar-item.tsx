@@ -19,7 +19,7 @@ const SidebarItem = ({ icon, title, path }: any) => {
         relative flex items-center py-2 px-3 my-1
         font-medium rounded-md cursor-pointer
         group text-white
-        ${active ? " bg-primary" : "hover:bg-secondary hover:text-textLighter"}
+        ${active ? " bg-primary" : "hover:bg-sidebarHover"}
     `}
       onClick={() => navigate(path)}
     >

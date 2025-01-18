@@ -3,7 +3,7 @@ import {
   IDataTable,
   ITableHeader,
 } from "../../interface/table/datatable-models";
-import TableLoader from "../Loading";
+import TableLoader from "./table-loader";
 
 const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
   return (
