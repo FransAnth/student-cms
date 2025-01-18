@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DataTable from "../components/table/table";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import {
@@ -8,6 +8,7 @@ import {
 import ActionButton from "../components/buttons/action-button";
 import AddRoomModal from "../components/modals/add-room/add-room-modal";
 import Loader from "../components/global/loader";
+import Pagination from "../components/pagination/pagination";
 
 const ClassroomPage = () => {
   const [queryParams, setQueryParams] = useState<any>({
@@ -16,6 +17,7 @@ const ClassroomPage = () => {
   });
   const [classroomList, setClassroomList] = useState([]);
   const [isAddRoomModalOpen, setAddRoomModalOpen] = useState(false);
+  const [totalCount, setTotalCount] = useState(0);
 
   const deleteRoom = (data: any) => {
     deleteRoomData(data.id);
@@ -51,14 +53,12 @@ const ClassroomPage = () => {
     },
   });
 
-  const {
-    isLoading: isFetchingClassrooms,
-    data: queryResponse,
-    status: queryStatus,
-  } = useQuery({
+  const { isLoading: isFetchingClassrooms } = useQuery({
     queryKey: ["ClassroomList", queryParams],
     queryFn: async () => {
-      return await getClassroomList(queryParams);
+      const { data: classroomList } = await getClassroomList(queryParams);
+      setClassroomList(classroomList.results);
+      setTotalCount(classroomList.count);
     },
   });
 
@@ -66,11 +66,19 @@ const ClassroomPage = () => {
     setAddRoomModalOpen(true);
   };
 
-  useEffect(() => {
-    if (queryStatus === "success") {
-      setClassroomList(queryResponse.data.results);
-    }
-  }, [queryStatus]);
+  const onPageChange = (page: number) => {
+    setQueryParams({
+      ...queryParams,
+      pageNumber: page,
+    });
+  };
+
+  const onSizeChange = (size: number) => {
+    setQueryParams({
+      ...queryParams,
+      pageSize: size,
+    });
+  };
 
   return (
     <>
@@ -83,6 +91,14 @@ const ClassroomPage = () => {
           headers={columnHeaders}
           rowData={classroomList}
           isFetching={isFetchingClassrooms}
+        />
+        <Pagination
+          className="pagination-bar"
+          currentPage={queryParams.pageNumber}
+          totalCount={totalCount}
+          pageSize={queryParams.pageSize}
+          onPageChange={onPageChange}
+          onSizeChange={onSizeChange}
         />
       </div>
       <AddRoomModal

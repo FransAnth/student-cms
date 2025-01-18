@@ -26,7 +26,7 @@ const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
             {headers.map((header: ITableHeader, header_index: number) => {
               if (header.id === "kebab") {
                 return (
-                  <td key={index}>
+                  <td key={header_index}>
                     <div
                       onClick={() => toggleKebab(index, true, kebabRef)}
                       className="cursor-pointer"
