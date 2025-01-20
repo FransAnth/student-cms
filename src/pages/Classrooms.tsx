@@ -6,7 +6,7 @@ import {
   getClassroomList,
 } from "../services/classroom-services";
 import ActionButton from "../components/buttons/action-button";
-import AddRoomModal from "../components/modals/add-room/add-room-modal";
+import AddRoomModal from "../components/modals/add-room-modal";
 import Loader from "../components/global/loader";
 import Pagination from "../components/pagination/pagination";
 

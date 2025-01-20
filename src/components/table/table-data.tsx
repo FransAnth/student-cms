@@ -15,7 +15,7 @@ const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
     <tbody>
       {isFetching ? (
         <TableLoader />
-      ) : (
+      ) : rowData.length ? (
         rowData.map((row: any, index: number) => (
           <tr
             key={index}
@@ -61,6 +61,15 @@ const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
             })}
           </tr>
         ))
+      ) : (
+        <tr>
+          <td
+            colSpan={headers.length}
+            className="bg-secondary h-16 w-full text-center border-b-2 border-primary"
+          >
+            No Result Found
+          </td>
+        </tr>
       )}
     </tbody>
   );

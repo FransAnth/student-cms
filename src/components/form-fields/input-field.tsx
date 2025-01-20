@@ -10,6 +10,7 @@ const InputField = (props: IInputField) => {
         className="border border-1-gray rounded-md p-2 text-sm text-textLighter"
         id={props.name}
         name={props.name}
+        placeholder={props.placeholder}
         type={props.type}
         defaultValue={props.defaultValue}
         {...renderRegisters}
