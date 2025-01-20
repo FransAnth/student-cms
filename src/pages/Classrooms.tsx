@@ -19,14 +19,6 @@ const ClassroomPage = () => {
   const [isAddRoomModalOpen, setAddRoomModalOpen] = useState(false);
   const [totalCount, setTotalCount] = useState(0);
 
-  const deleteRoom = (data: any) => {
-    deleteRoomData(data.id);
-  };
-
-  // const viewRoom = (data: any) => {
-  //   console.log(data);
-  // };
-
   const columnHeaders = [
     { title: "Building Name", id: "building_name", type: "text" },
     { title: "Room Name", id: "name", type: "text" },
@@ -36,8 +28,12 @@ const ClassroomPage = () => {
       id: "kebab",
       type: "kebab",
       options: [
-        // { type: "view", name: "View", action: viewRoom },
-        { type: "delete", name: "Delete", action: deleteRoom },
+        // { type: "view", name: "View", action: (data: any) => viewRoom(data) },
+        {
+          type: "delete",
+          name: "Delete",
+          action: (data: any) => deleteRoom(data),
+        },
       ],
     },
   ];
@@ -65,6 +61,14 @@ const ClassroomPage = () => {
   const addRooms = () => {
     setAddRoomModalOpen(true);
   };
+
+  const deleteRoom = (data: any) => {
+    deleteRoomData(data.id);
+  };
+
+  // const viewRoom = (data: any) => {
+  //   console.log(data);
+  // };
 
   const onPageChange = (page: number) => {
     setQueryParams({
