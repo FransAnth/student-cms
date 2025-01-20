@@ -5,13 +5,13 @@ import ActionButton from "../buttons/action-button";
 import InputField from "../form-fields/input-field";
 import { useForm } from "react-hook-form";
 import Loader from "../global/loader";
-import { addStudent } from "../../services/student-services";
+import { addCourse } from "../../services/course-services";
 
-const AddStudentModal = (props: IAddDataModal) => {
+const AddCourseModal = (props: IAddDataModal) => {
   const { register, handleSubmit } = useForm();
 
-  const { isPending: addingStudent, mutate: addNewStudent } = useMutation({
-    mutationFn: addStudent,
+  const { isPending: addingCourse, mutate: addNewCourse } = useMutation({
+    mutationFn: addCourse,
     onSuccess: (response: any) => {
       console.log(response);
       location.reload();
@@ -24,44 +24,29 @@ const AddStudentModal = (props: IAddDataModal) => {
   return (
     <>
       <Modal
-        title="Add Student"
+        title="Add Course"
         isOpen={props.isOpen}
         closeModalAction={props.closeModalAction}
         children={
           <div className="px-12 py-4">
-            <form onSubmit={handleSubmit((data) => addNewStudent(data))}>
+            <form onSubmit={handleSubmit((data) => addNewCourse(data))}>
               <div className="flex flex-col justify-between gap-12">
                 <div className="flex justify-between gap-8">
                   <InputField
-                    name="firstName"
-                    label="First Name"
+                    name="name"
+                    label="Course Name"
                     register={register}
                     type="text"
                   />
                   <InputField
-                    name="middleInitial"
-                    label="Middle Initial"
+                    name="code"
+                    label="Code"
                     register={register}
                     type="text"
                   />
                   <InputField
-                    name="lastName"
-                    label="Last Name"
-                    register={register}
-                    type="text"
-                  />
-                </div>
-                <div className="flex justify-between gap-8">
-                  <InputField
-                    name="address"
-                    label="Address"
-                    register={register}
-                    type="text"
-                  />
-                  <InputField
-                    name="birthday"
-                    label="Birthday"
-                    placeholder="YYYY-MM-DD"
+                    name="description"
+                    label="Description"
                     register={register}
                     type="text"
                   />
@@ -83,9 +68,9 @@ const AddStudentModal = (props: IAddDataModal) => {
           </div>
         }
       />
-      {addingStudent && <Loader />}
+      {addingCourse && <Loader />}
     </>
   );
 };
 
-export default AddStudentModal;
+export default AddCourseModal;
