@@ -1,9 +1,5 @@
 const CoursesPage = (props: any) => {
-  return (
-    <div>
-      In <progress></progress>
-    </div>
-  );
+  return <div>Page In progress</div>;
 };
 
 export default CoursesPage;
