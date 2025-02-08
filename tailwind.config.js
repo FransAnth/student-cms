@@ -4,13 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#B2A59B",
-        secondary: "#FAEED1",
-        primaryBg: "#607274",
-        secondaryBg: "#fff",
-        sidebarHover: "#A89F98",
+        primary: "#739498",
+        secondary: "#BBCED0",
+        primaryBg: "#5E8085",
+        secondaryBg: "#EFF7F8",
+        sidebarHover: "#73949870",
         textLighter: "#4b5563",
-        warning: "#D75858",
+        warning: "#C76D6D",
       },
     },
   },
