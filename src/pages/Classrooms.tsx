@@ -80,6 +80,7 @@ const ClassroomPage = () => {
   const onSizeChange = (size: number) => {
     setQueryParams({
       ...queryParams,
+      pageNumber: 1,
       pageSize: size,
     });
   };
