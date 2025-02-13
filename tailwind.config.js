@@ -8,7 +8,7 @@ export default {
         secondary: "#BBCED0",
         primaryBg: "#5E8085",
         secondaryBg: "#EFF7F8",
-        sidebarHover: "#73949870",
+        primaryBgHover: "#4B6A6F",
         textLighter: "#4b5563",
         warning: "#C76D6D",
       },

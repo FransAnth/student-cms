@@ -1,10 +1,12 @@
 import { ChevronFirst, ChevronLast } from "lucide-react";
-import { createContext, useState } from "react";
+import { createContext } from "react";
+import { useSidenavStore } from "../../store/sidebar-store";
 
 const SidebarContext = createContext({});
 
 const Sidebar = ({ children }: any) => {
-  const [expanded, setExpanded] = useState(true);
+  const expanded = useSidenavStore((state) => state.sidenavExpanded);
+  const toggleSidenav = useSidenavStore((state) => state.toggleSidenav);
 
   return (
     <aside className="h-screen w-fit">
@@ -17,7 +19,7 @@ const Sidebar = ({ children }: any) => {
             } p-2`}
           />
           <button
-            onClick={() => setExpanded((value) => !value)}
+            onClick={() => toggleSidenav(!expanded)}
             className="p-1.5 rounded-3xl bg-secondary"
           >
             {expanded ? <ChevronFirst /> : <ChevronLast />}

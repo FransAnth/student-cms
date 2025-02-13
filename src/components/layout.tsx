@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Sidebar } from "./sidebar/sidebar";
 import SidebarItem from "./sidebar/sidebar-item";
 import { BookAIcon, HomeIcon, User2Icon } from "lucide-react";
+import AIAssistant from "./ai-assistant/ai-assistant";
 
 const Layout = () => {
   return (
@@ -26,6 +27,7 @@ const Layout = () => {
       <div className="w-full bg-secondaryBg">
         <Outlet />
       </div>
+      <AIAssistant />
     </div>
   );
 };

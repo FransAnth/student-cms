@@ -23,11 +23,15 @@ const Modal = (props: IModal) => {
 
   return createPortal(
     <div
-      className={`${
-        props.isOpen ? "flex" : "hidden"
-      } pt-24 justify-center inset-0 fixed z-30 bg-gray-500 bg-opacity-50`}
+      className={`fixed inset-0 z-30 flex pt-40 justify-center bg-gray-500 bg-opacity-50 
+      transition-opacity duration-300 ease-in-out 
+      ${props.isOpen ? "visible opacity-100" : "invisible opacity-0"}`}
     >
-      <div className="flex flex-col bg-white w-1/2 h-fit min-h-56 rounded-lg">
+      <div
+        className={`flex flex-col bg-white w-1/2 h-fit min-h-56 rounded-lg 
+        transform transition-all duration-300 ease-in-out 
+        ${props.isOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}
+      >
         <div className="flex flex-row justify-between p-2 bg-primary rounded-t-lg text-white">
           <span>{props.title}</span>
           <button onClick={props.closeModalAction}>

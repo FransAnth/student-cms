@@ -19,7 +19,7 @@ const SidebarItem = ({ icon, title, path }: any) => {
         relative flex items-center py-2 px-3 my-1
         font-medium rounded-md cursor-pointer
         group text-white
-        ${active ? " bg-primary" : "hover:bg-sidebarHover"}
+        ${active ? " bg-primary" : "hover:bg-primaryBgHover"}
     `}
       onClick={() => navigate(path)}
     >
@@ -36,7 +36,7 @@ const SidebarItem = ({ icon, title, path }: any) => {
         <div
           className={`
           absolute left-full rounded-md px-2 py-1 ml-6
-          bg-primary text-primary text-sm
+          bg-primary text-sm
           invisible opacity-20 -translate-x-3 transition-all
           group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
       `}
