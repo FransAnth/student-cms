@@ -10,16 +10,17 @@ const Chatbox = ({ conversations }: IChatbox) => {
   const convoRef = useRef<any>(null);
 
   useEffect(() => {
+    console.log("conv", conversations);
     convoRef.current?.lastElementChild?.scrollIntoView();
   }, [conversations]);
 
   return (
-    <div id="chatConfigCss" className="h-[80vh] p-10 overflow-auto text-sm">
+    <div id="chatConfigCss" className="h-[80vh] p-10 overflow-auto ">
       {conversations.length ? (
         conversations?.map?.((conv: IChatConversations, index: number) => (
           <>
             <div key={index} ref={convoRef}>
-              <div className="flex justify-end mb-2 gap-4">
+              <div className="flex justify-end mb-4 gap-4">
                 <div className="bg-primary px-4 py-2 rounded-lg text-white flex gap-2 max-w-[60%]">
                   <div>{conv.question}</div>
                 </div>
@@ -27,13 +28,13 @@ const Chatbox = ({ conversations }: IChatbox) => {
                   <img src="src\assets\images\user-icon.png" />
                 </div>
               </div>
-              <div className="flex mb-2">
+              <div className="flex mb-4">
                 {conv.answer ? (
                   <div className="flex gap-4">
                     <div className="w-5 h-5">
                       <img src="src\assets\images\chatbot-icon.png" />
                     </div>
-                    <div className="flex-col justify-center text-white flex gap-2 max-w-[60%]">
+                    <div className="flex-col justify-center text-black flex gap-2 max-w-[60%] bg-secondaryBg px-4 py-2 rounded-lg">
                       <ReactMarkdown>{conv.answer}</ReactMarkdown>
                     </div>
                   </div>
@@ -42,7 +43,7 @@ const Chatbox = ({ conversations }: IChatbox) => {
                     <div className="w-5 h-5">
                       <img src="src\assets\images\chatbot-icon.png" />
                     </div>
-                    <div className="flex flex-col justify-center text-white gap-2 max-w-[60%]">
+                    <div className="flex flex-col justify-center text-black gap-2 max-w-[60%]">
                       <div id="chatLoader"></div>
                     </div>
                   </div>

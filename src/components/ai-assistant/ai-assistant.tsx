@@ -19,7 +19,7 @@ const AIAssistant = () => {
           expanded ? "w-[40%] p-4" : "w-0 max-w-0"
         } bg-secondary flex-col  transition-all duration-300 overflow-hidden`}
       >
-        <div className="flex justify-end">
+        <div className="flex justify-end mb-2">
           <button
             className="p-1.5 rounded-3xl bg-secondaryBg"
             onClick={() => {
@@ -34,10 +34,10 @@ const AIAssistant = () => {
       <button
         className={`${
           expanded ? "hidden" : "block"
-        } fixed bottom-8 right-8 bg-primary px-4 py-2.5 rounded-full text-white shadow-lg hover:bg-primaryBgHover transition-all`}
+        } fixed bottom-10 right-10 rounded-full text-white shadow-lg transition-all`}
         onClick={() => handlePageToggle(true)}
       >
-        AI
+        <img className="w-12" src="src\assets\images\chatbot-icon.png" />
       </button>
     </>
   );

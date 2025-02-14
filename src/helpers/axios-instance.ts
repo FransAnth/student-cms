@@ -6,5 +6,12 @@ export default function AxiosInstance() {
     headers: {},
   });
 
-  return { StudentCms };
+  let OpenAi = axios.create({
+    baseURL: "https://api.openai.com",
+    headers: {
+      Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+    },
+  });
+
+  return { StudentCms, OpenAi };
 }

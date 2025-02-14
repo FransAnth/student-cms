@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { SendIcon } from "lucide-react";
 
 interface IUserMessageContainer {
@@ -22,6 +22,10 @@ const UserMessageContainer = ({
       messageRef.current.value = "";
     }
   };
+
+  if (messageRef.current) {
+    messageRef.current.focus();
+  }
 
   return (
     <>
