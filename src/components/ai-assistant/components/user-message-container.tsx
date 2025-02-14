@@ -28,7 +28,7 @@ const UserMessageContainer = ({
       <div className="flex w-full">
         <textarea
           ref={messageRef}
-          className="w-full rounded-s-lg border-primary px-4 py-2 resize-none h-12 bg-secondary"
+          className="w-full rounded-s-lg border-primary px-4 py-2 resize-none h-12 bg-secondaryBg"
           onKeyDown={sendMessageAction}
         />
         <button

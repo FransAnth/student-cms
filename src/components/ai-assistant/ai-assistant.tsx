@@ -17,11 +17,11 @@ const AIAssistant = () => {
       <div
         className={`${
           expanded ? "w-[40%] p-4" : "w-0 max-w-0"
-        } flex-col bg-primary transition-all duration-300 overflow-hidden`}
+        } bg-secondary flex-col  transition-all duration-300 overflow-hidden`}
       >
         <div className="flex justify-end">
           <button
-            className="p-1.5 rounded-3xl bg-secondary"
+            className="p-1.5 rounded-3xl bg-secondaryBg"
             onClick={() => {
               handlePageToggle(false);
             }}
