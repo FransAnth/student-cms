@@ -1,7 +1,7 @@
 import { ChevronLast } from "lucide-react";
 import { useState } from "react";
 import { useSidenavStore } from "../../store/sidebar-store";
-import ChatbotContainer from "./chatbot-container";
+import ChatbotContainer from "./assistant-container";
 
 const AIAssistant = () => {
   const [expanded, setExpanded] = useState(false);

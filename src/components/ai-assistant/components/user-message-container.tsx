@@ -1,4 +1,4 @@
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
 import { SendIcon } from "lucide-react";
 
 interface IUserMessageContainer {

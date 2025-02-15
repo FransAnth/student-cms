@@ -11,8 +11,8 @@ const ChatbotContainer = () => {
   const [conversation, setConversation] = useState<any>([]);
   const navigate = useNavigate();
 
-  const { mutate: sendToChatGPTFn, isPending: isChatbotThinking } = useMutation(
-    {
+  const { mutate: sendToChatGPTFn, isPending: isAssistantThinking } =
+    useMutation({
       mutationFn: sendMessageToChatGPT,
       onSuccess: (res: any) => {
         const { response, payload } = res;
@@ -22,16 +22,14 @@ const ChatbotContainer = () => {
 
           if (finishReason === "stop") {
             const botMessage = response?.data?.choices[0]?.message?.content;
-            const currConvo = [...conversation];
-            const lastConvo = currConvo.pop();
+            const messages = [...conversation];
 
-            currConvo.push({
-              question: lastConvo.question,
-              answer: botMessage,
+            messages.push({
+              role: "assistant",
+              content: botMessage,
             });
 
-            console.log("CONVO", currConvo);
-            setConversation(currConvo);
+            setConversation(messages);
           }
 
           const functionDetails =
@@ -48,37 +46,36 @@ const ChatbotContainer = () => {
                   "Successfully navigated to the desired page. Function is now finished.",
               });
 
-              console.log(args.path);
               navigate(args.path);
               sendToChatGPTFn(payload);
               break;
           }
         }
       },
-    }
-  );
+    });
 
   const sendMessage = (message: string) => {
-    let userMessages = [
-      {
+    const messages = [...conversation];
+
+    if (message.trim() !== "") {
+      let systemMessage = {
         role: "system",
         content:
           "Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous. Be honest if the action is not possible to execute. When the function is finished do not try to make another tool call again stop the conversation",
-      },
-    ];
+      };
 
-    if (message.trim() !== "") {
-      userMessages.push({
+      messages.push({
         role: "user",
         content: message,
       });
 
-      setConversation([...conversation, { question: message, amswer: null }]);
+      setConversation([...messages]);
+      messages.unshift(systemMessage);
 
       const allTools = [...NavigationToolDescription];
 
       const payload: IOpenAiPayload = {
-        messages: userMessages,
+        messages: messages,
         model: "gpt-4o",
         functions: allTools,
       };
@@ -89,10 +86,13 @@ const ChatbotContainer = () => {
 
   return (
     <>
-      <ChatBox conversations={conversation} />
+      <ChatBox
+        conversations={conversation}
+        assistantThinking={isAssistantThinking}
+      />
       <UserMessageContainer
         callback={sendMessage}
-        isDisabled={isChatbotThinking}
+        isDisabled={isAssistantThinking}
       />
     </>
   );

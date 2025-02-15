@@ -1,4 +1,4 @@
-const ChatbotGreeting = () => {
+const AssistantGreeting = () => {
   return (
     <div className="flex items-center justify-center h-full text-center p-6 pt-0">
       <div className="text-gray-800 p-6 pt-0 rounded-lg  max-w-md">
@@ -15,4 +15,4 @@ const ChatbotGreeting = () => {
   );
 };
 
-export default ChatbotGreeting;
+export default AssistantGreeting;
