@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import { IChatConversations } from "../../../interface/ai-assistant/chat-conversation";
 import ChatbotGreeting from "./assistant-greeting";
