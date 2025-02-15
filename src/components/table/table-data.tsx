@@ -14,7 +14,7 @@ const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
   return (
     <tbody>
       {isFetching ? (
-        <TableLoader />
+        <TableLoader columns={headers} />
       ) : rowData.length ? (
         rowData.map((row: any, index: number) => (
           <tr

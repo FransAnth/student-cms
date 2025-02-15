@@ -76,7 +76,7 @@ const ChatbotContainer = () => {
 
       const payload: IOpenAiPayload = {
         messages: messages,
-        model: "gpt-4o",
+        model: "gpt-4o-mini",
         functions: allTools,
       };
 
