@@ -17,9 +17,9 @@ const StudentsPage = () => {
   const [totalCount, setTotalCount] = useState(0);
 
   const columnHeaders = [
-    { title: "First Name", id: "first_name", type: "text" },
-    { title: "Middle Initial", id: "middle_initial", type: "text" },
-    { title: "Last Name", id: "last_name", type: "text" },
+    { title: "First Name", id: "firstName", type: "text" },
+    { title: "Middle Initial", id: "middleInitial", type: "text" },
+    { title: "Last Name", id: "lastName", type: "text" },
     { title: "Address", id: "address", type: "text" },
     {
       title: "",

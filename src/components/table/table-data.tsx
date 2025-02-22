@@ -23,10 +23,10 @@ const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
               index === rowData.length - 1 ? " border-b-2 border-primary" : ""
             }`}
           >
-            {headers.map((header: ITableHeader, header_index: number) => {
+            {headers.map((header: ITableHeader, headerIndex: number) => {
               if (header.id === "kebab") {
                 return (
-                  <td key={header_index}>
+                  <td key={headerIndex}>
                     <div
                       onClick={() => toggleKebab(index, true, kebabRef)}
                       className="cursor-pointer"
@@ -53,7 +53,7 @@ const DataTableBody = ({ rowData, headers, isFetching }: IDataTable) => {
                 );
               } else {
                 return (
-                  <td className="p-3 pl-5" key={header_index}>
+                  <td className="p-3 pl-5" key={headerIndex}>
                     {row[header.id]}
                   </td>
                 );

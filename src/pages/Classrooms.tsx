@@ -20,7 +20,7 @@ const ClassroomPage = () => {
   const [totalCount, setTotalCount] = useState(0);
 
   const columnHeaders = [
-    { title: "Building Name", id: "building_name", type: "text" },
+    { title: "Building Name", id: "buildingName", type: "text" },
     { title: "Room Name", id: "name", type: "text" },
     { title: "Status", id: "status", type: "text" },
     {

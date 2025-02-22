@@ -43,7 +43,7 @@ const ChatbotContainer = () => {
                 role: "function",
                 name: functionDetails.name,
                 content:
-                  "Successfully navigated to the desired page. Function is now finished.",
+                  "Navigation to the desired page is complete. No further function calls are required.",
               });
 
               navigate(args.path);
@@ -76,7 +76,7 @@ const ChatbotContainer = () => {
 
       const payload: IOpenAiPayload = {
         messages: messages,
-        model: "gpt-4o-mini",
+        model: "gpt-4o",
         functions: allTools,
       };
 
