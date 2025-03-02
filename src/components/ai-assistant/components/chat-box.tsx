@@ -11,7 +11,7 @@ const Chatbox = ({ conversations, assistantThinking }: IChatbox) => {
   const convoRef = useRef<any>(null);
 
   useEffect(() => {
-    convoRef.current?.lastElementChild?.scrollIntoView();
+    convoRef.current?.lastElementChild.scrollIntoView({ behavior: "smooth" });
   }, [conversations]);
 
   return (
@@ -20,7 +20,7 @@ const Chatbox = ({ conversations, assistantThinking }: IChatbox) => {
         conversations?.map?.((conv: IChatConversations, index: number) => {
           if (conv.role == "user") {
             return (
-              <div key={index}>
+              <div key={index} ref={convoRef}>
                 <div className="flex justify-end mb-4 gap-4">
                   <div className="bg-primary px-4 py-2 rounded-lg text-white flex gap-2 max-w-[60%]">
                     <div>{conv.content}</div>
